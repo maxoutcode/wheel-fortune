@@ -1,14 +1,3 @@
-<blockquote style="border-left: 4px solid red; padding: 1em;">
-⚠️ Version 4.0.0 introduces a complete rewrite:
-
-- Replaced **GSAP** with native **Web Animations API**.
-- Changed spin configuration from `stopSegment` to `targetAngle` (degrees).
-- Removed `segmentCount` and blackout animation.
-- Introduced idle swaying animation (`swayOptions`).
-
-If you're relying on the GSAP-based version, you can stay on [version 3.1.0](https://www.npmjs.com/package/wheel-fortune/v/3.1.0).
-</blockquote>
-
 <div align="center">
 <br>
 
@@ -67,8 +56,13 @@ wheelFortune.init();
 |:------------------|:-------------:|:-------:|:------------------------------------------------------------------------------------------|
 | `rootSelector`    |   `string`    |   `–`   | Selector for the root container element.                                                  |
 | `wheelSelector`   |   `string`    |   `–`   | Selector for the rotating wheel element.                                                  |
-| `triggerSelector` |   `string`    |   `–`   | Selector for the spin trigger button.                                                     |
-| `spinStates`      | `SpinState[]` |   `[]`  | Array of spin results in sequence. Each includes a `targetAngle` and optional `callback`. |
+| `triggerSelector` |   `string`    |   `–`   | Selector for the spin trigger element (`button`, `div`, etc.).                            |
+| `rotationCount`   |   `number`    |   `6`   | Number of full rotations before landing on the final target angle.                         |
+| `duration`        |   `number`    | `5000`  | Main spin duration in milliseconds.                                                         |
+| `overshootDeg`    |   `number`    |  `15`   | Overshoot angle in degrees before settling on the target.                                  |
+| `returnDuration`  |   `number`    | `1350`  | Duration of the settle-back phase after overshoot.                                         |
+| `swayOptions`     | `SwayOptions` |   `–`   | Optional idle sway config: `{ amplitude?: number; period?: number }`.                      |
+| `spinStates`      | `SpinState[]` |   `[]`  | Array of spin results in sequence. Each includes `targetAngle` and optional `callback`.    |
 <br>
 
 &#10148; **API**
@@ -94,4 +88,4 @@ You can use these classes to style the component based on its state.
 
 &#10148; **License**
 
-wheel-fortune is released under the MIT license.
+MIT
